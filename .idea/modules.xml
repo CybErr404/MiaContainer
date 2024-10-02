@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GenericMiaContainer.iml" filepath="$PROJECT_DIR$/GenericMiaContainer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiaContainer.iml" filepath="$PROJECT_DIR$/MiaContainer.iml" />
     </modules>
   </component>
 </project>
