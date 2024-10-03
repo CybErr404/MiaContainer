@@ -1,14 +1,14 @@
 public class MiaContainer <T>{
-    private int[] data;
+    private T[] data;
     private int currentPosition;
     public MiaContainer() {
-        data = new int[10];
+        data = (T[]) new Object[10];
         currentPosition = 0;
     }
 
     public void increaseSize() {
         if(currentPosition == data.length) {
-            int[] temp = new int[data.length * 2];
+            T[] temp = (T[]) new Object[data.length * 2];
             for(int i = 0; i < data.length; i++) {
                 temp[i] = data[i];
             }
@@ -16,7 +16,7 @@ public class MiaContainer <T>{
         }
     }
 
-    public void addData(int newData) {
+    public void addData(T newData) {
         if(currentPosition == data.length) {
             increaseSize();
         }
@@ -24,7 +24,7 @@ public class MiaContainer <T>{
         currentPosition++;
     }
 
-    public void addData(int position, int newData) {
+    public void addData(int position, T newData) {
         if(position == 0) {
             addFirst(newData);
         }
@@ -43,7 +43,7 @@ public class MiaContainer <T>{
         }
     }
 
-    public void addFirst(int newData) {
+    public void addFirst(T newData) {
         if(currentPosition == data.length) {
             increaseSize();
         }
@@ -54,7 +54,7 @@ public class MiaContainer <T>{
         currentPosition++;
     }
 
-    public void addAll(int newData) {
+    public void addAll(T newData) {
         for(int i = 0; i < data.length; i++) {
             if(!(data[i] == newData)) {
                 data[i] = newData;
@@ -62,7 +62,7 @@ public class MiaContainer <T>{
         }
     }
 
-    public void replace(int position, int newData) {
+    public void replace(int position, T newData) {
         data[position] = newData;
     }
 
@@ -71,25 +71,25 @@ public class MiaContainer <T>{
             removeFirst();
         }
         else if(positionToRemove == data.length - 1) {
-            data[positionToRemove] = 0;
+            data[positionToRemove] = null;
             currentPosition--;
         }
         else {
-            data[positionToRemove] = 0;
+            data[positionToRemove] = null;
             for(int i = positionToRemove; i < data.length - 1; i++) {
                 data[i] = data[i + 1];
             }
-            data[data.length - 1] = 0;
+            data[data.length - 1] = null;
             currentPosition--;
         }
     }
 
     public void removeFirst() {
-        data[0] = 0;
+        data[0] = null;
         for(int i = 0; i < data.length - 1; i++) {
             data[i] = data[i + 1];
         }
-        data[data.length - 1] = 0;
+        data[data.length - 1] = null;
         currentPosition--;
     }
 
@@ -103,10 +103,10 @@ public class MiaContainer <T>{
     }
 
     public int getElement(int position) {
-        return data[position];
+        return (int) data[position];
     }
 
-    public boolean contains(int userData) {
+    public boolean contains(T userData) {
         for(int i = 0; i < data.length; i++) {
             if(data[i] == userData) {
                 return true;
@@ -115,7 +115,7 @@ public class MiaContainer <T>{
         return false;
     }
 
-    public int indexOf(int userData) {
+    public int indexOf(T userData) {
         for(int i = 0; i < data.length; i++) {
             if(data[i] == userData) {
                 return i;
